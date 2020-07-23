@@ -41,3 +41,22 @@ console.log(twoSum2([2, 7, 11, 15], 9));
 console.log(twoSum2([2, 7, 11, 15], 26));
 console.log(twoSum2([2, 7, 11, 15], 26));
 
+function twoSum2(dataArr, target) {
+    let len = dataArr.length;
+    let index1, index2;
+
+    for(let i = 0; i < len; ++i) {
+        for(let j = i+1; j < len; ++j) {
+            if (i === j) continue;
+
+            if(dataArr[i] + dataArr[j] === target) {
+                index1 = i;
+                index2 = j;
+                break;
+            }
+        }
+    }
+
+    return [index1, index2];
+}
+

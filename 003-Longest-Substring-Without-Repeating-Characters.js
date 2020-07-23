@@ -43,3 +43,22 @@ console.log(lengthOfLongestSubstring('abcabcbb'), 3);
 console.log(lengthOfLongestSubstring('bbbbb'), 1);
 console.log(lengthOfLongestSubstring('pwwkew'), 3);
 console.log(lengthOfLongestSubstring('xhhyccrcbdczkvzeeubynglxfdedshtpobqsdhufkzgwuhaabdzrlkosnuxibrxssnkxuhcggkecshdvkcmymdqbxolbfjtzyfw'), 14);
+
+function lengthOfLongestSubstring(str) {
+    let i = 0, j = 0, n = str.length;
+    let map = {};
+    let max = 0;
+
+    while(i < n && j < n) {
+        if (map[str[j]] === undefined) {
+            map[str[j]] = 1;
+            j++;
+            max = Math.max( max, j - i);
+        } else {
+            delete map[str[i]];
+            i++;
+        }
+    }
+
+    return max;
+}
