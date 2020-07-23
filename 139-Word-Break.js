@@ -42,3 +42,21 @@ console.log(wordBreak("leetcode", ["lee", "leet", "cod", "code"]));
 console.log(wordBreak("", ["lee", "leet", "cod", "code"]));
 console.log(wordBreak("lee", ["l", "leet", "cod", "code", "e"]));
 console.log(wordBreak("lee", ["l", "leet", "cod", "code", "leetco"]));
+
+var wordBreak = function (s, wordDict) {
+    let n = s.length;
+    let map = [];
+
+    for(let i = 1; i < n+1; ++i) {
+        map[i] = false;
+
+        for(let j = 0; j < i; ++j) {
+            if (map[j] && wordDict.indexOf(s.substring(j, i)) !== -1) {
+                map[i] = true;
+            }
+        }
+    }
+
+    return map[n];
+
+}

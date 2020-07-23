@@ -20,6 +20,7 @@
 
 function kth(arr1, s1, n1, arr2, s2, n2, k) {
     // console.log(arr1, s1, n1, arr2, s2, n2, k);
+    r
     // console.log('-----------');
     if (k < 1 || k > n1 + n2) return -1;
 
