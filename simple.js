@@ -1,25 +1,15 @@
-class Singleton {
-    constructor() {
-        console.log('test')
+let re = /(\w)\1+/g;
+let num = 0;
+let char = '';
+let str = 'abcabcabcbbcccccc';
+
+str = str.split('').sort().join('');
+
+str.replace(re, ($0, $1) => {
+    if (num < $0.length) {
+        num = $0.length;
+        char = $1;
     }
-}
+});
 
-function Singleton() {
-    this.a = 'test'
-}
-
-Singleton.getInstance = (function() {
-    let instance;
-            instance = new Singleton()
-            console.log('123');
-
-
-    return function() {
-        if(!instance) {
-        }
-
-        return instance;
-    }
-})()
-
-Singleton.getInstance();
+console.log(`字符最多的是${char}, 出现了${num}次`);
